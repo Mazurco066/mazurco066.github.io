@@ -1,13 +1,13 @@
 # mazurco066.github.io
 My GitHub WebPage
 
-# Developer
+## Developer
 * **Gabriel Mazurco Ribeiro**
 
 ## Methods
 * **POG**
 
-# Objective
+## Objective
 Develop a personal website for me to introduce myself
 
 ## License

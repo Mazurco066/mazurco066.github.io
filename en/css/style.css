@@ -23,8 +23,9 @@ p{
 /* ID's Definidos para uso em certas divs */
 #logotipo{
     /* Id para imagem logotipo que fica na barra de navegação */
-    height: 95%;
-    width: 95%;
+    padding-top: 10px;
+    height: 60px;
+    width: 200px;
 }
 
 #profile{

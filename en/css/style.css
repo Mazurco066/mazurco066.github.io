@@ -70,6 +70,18 @@ p{
 }
 
 /* Classes para uso do Site */
+.gitIcon{
+    width: 100%;
+    height: 100%;
+}
+
+.gitImage{
+    width: 40px;
+    height: 50px;
+    padding-top: 15px;
+    margin: auto;
+}
+
 .proj1{
     /* Classe para projetos que ficam em exibição do lado esquerdo da tabela */
     margin: 0 150px;

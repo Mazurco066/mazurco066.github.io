@@ -1,6 +1,6 @@
 # mazurco066.github.io
 
-My GitHub WebPage
+My GitHub WebPage.
 
 ## Developer
 
@@ -14,8 +14,8 @@ My GitHub WebPage
 
 ## Objective
 
-Develop a personal website for me to introduce myself
+Develop a personal website for me to introduce myself.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

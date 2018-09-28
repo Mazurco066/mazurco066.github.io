@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'RobotoThin';
+    src: url('../fonts//Roboto-Thin.woff2');
+
+}
+
+* {
+    font-family: 'RobotoThin'
+}
+
+body{
+    font: 300 18px ;
+    width: 100%;
+    height: 100%;
+}

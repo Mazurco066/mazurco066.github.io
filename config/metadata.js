@@ -2,7 +2,7 @@ module.exports = {
   title: `Gabriel Mazurco`,
   description: `My awesome portfolio.`,
   author: `@mazurco066`,
-  siteUrl: `http://localhost:9000`,
+  siteUrl: `https://mazurco066.github.io`,
   facebookUrl: 'https://www.facebook.com/gabriel.ribeiro.7921/',
   githubUrl: 'https://github.com/Mazurco066',
   linkedinUrl: 'https://www.linkedin.com/in/mazurco066/',

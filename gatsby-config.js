@@ -1,4 +1,5 @@
 const metadata = require('./config/metadata')
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {...metadata },
@@ -44,6 +45,13 @@ module.exports = {
             variants: [`300`,`400`,`600`,`900`]
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `v9a698scat4b`,
+        accessToken: process.env.API_TOKEN
       },
     },
     {

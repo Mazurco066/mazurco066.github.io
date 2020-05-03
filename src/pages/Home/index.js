@@ -1,3 +1,4 @@
+import Img from 'gatsby-image';
 import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 
@@ -8,7 +9,7 @@ import facebook from '../../images/facebook.svg';
 import github from '../../images/github.svg';
 import linkedin from '../../images/linkedin.svg';
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby';
 
 import {
   AvatarSection,
@@ -27,7 +28,6 @@ import {
   CarrerItem,
   CarrerImgWrapper,
   CarrerName,
-  CarrerImage,
   CarrerInfo,
   CarrerDate,
   CarrerCompany,
@@ -37,7 +37,6 @@ import {
   CarrerTitle,
   EducationCompany,
   EducationDate,
-  EducationImage,
   EducationImgWrapper,
   EducationInfo,
   EducationInnerContainer,
@@ -58,11 +57,11 @@ import {
   CertificateHeader,
   CertificateDate,
   CertificateHours,
-  CertificateImg,
   CertificateLink,
   CertificateName,
   CertificatePlace,
   CertificateSumary,
+  CertificateImg,
   Container,
   CubeEffect,
   EducationSection,
@@ -79,23 +78,75 @@ import {
   TerminalResult
 } from './styles';
 
-export default function Home() {
-  const data = useStaticQuery(graphql`
-    query homePageQuery {
-      site {
-        siteMetadata {
-          facebookUrl,
-          githubUrl,
-          linkedinUrl,
-          carrers { id, title, date, company, imgUrl },
-          certificates { id, title, platform, description, hours, finishDate, imgUrl, certUrl },
-          education { id, title, date, company, imgUrl },
-          skills { id, date, title, user }
+const query = graphql`
+  {
+    carrers: allContentfulCarrer(sort: {fields: admission, order: DESC}) {
+      nodes {
+        date
+        id
+        company
+        roles
+        title
+        imgUrl {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+        admission
+      }
+    }
+    certificates: allContentfulCertificate {
+      nodes {
+        certUrl
+        description
+        finishDate
+        hours
+        id
+        imgUrl {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+        title
+        platform
+      }
+    }
+    graduations: allContentfulEducation(sort: {order: DESC, fields: completition}) {
+      nodes {
+        completition
+        date
+        id
+        company
+        title
+        imgUrl {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
         }
       }
     }
-  `);
+    skills: allContentfulSkill {
+      nodes {
+        user
+        title
+        class
+        date
+        id
+      }
+    }
+    contact: site {
+      info: siteMetadata {
+        facebookUrl
+        githubUrl
+        linkedinUrl
+      }
+    }
+  }
+`;
 
+const Home = () => {
+  const data = useStaticQuery(query);
+  const { carrers, certificates, graduations, skills, contact } = data;
   return (
     <HomeWrapper>
       <SEO title="Home" />
@@ -118,19 +169,19 @@ export default function Home() {
               <AvatarRole>Desenvolvedor Web</AvatarRole>
               <AvatarSocialMedia>
                 <SocialMediaButton
-                  href={data.site.siteMetadata.facebookUrl}
+                  href={contact.info.facebookUrl}
                   target="_blank"
                 >
                   <SocialMediaIcon src={facebook} alt="facebook"/>
                 </SocialMediaButton>
                 <SocialMediaButton
-                  href={data.site.siteMetadata.linkedinUrl}
+                  href={contact.info.linkedinUrl}
                   target="_blank"
                 >
                   <SocialMediaIcon src={linkedin} alt="linkedin"/>
                 </SocialMediaButton>
                 <SocialMediaButton
-                  href={data.site.siteMetadata.githubUrl}
+                  href={contact.info.githubUrl}
                   target="_blank"
                 >
                   <SocialMediaIcon src={github} alt="github"/>
@@ -168,7 +219,7 @@ export default function Home() {
                   </CarrerBadgeContainer>
                 </CarrerLabel>
                 <CarrerTimeline>
-                  { data.site.siteMetadata.carrers.map(carrer =>  (
+                  { carrers.nodes.map(carrer =>  (
                       <CarrerItem key={carrer.id}>
                         <CarrerInfo>
                           <CarrerDate>{ carrer.date }</CarrerDate>
@@ -176,7 +227,7 @@ export default function Home() {
                           <CarrerCompany>{ carrer.company }</CarrerCompany>  
                         </CarrerInfo>
                         <CarrerImgWrapper>
-                          <CarrerImage src={carrer.imgUrl}></CarrerImage>
+                          <Img fluid={carrer.imgUrl.fluid}></Img>
                         </CarrerImgWrapper>
                       </CarrerItem>
                     )
@@ -205,7 +256,7 @@ export default function Home() {
             <TerminalCommand>
               {' '}ls -l
             </TerminalCommand>
-            { data.site.siteMetadata.skills.map(skill => (
+            { skills.nodes.map(skill => (
               <TerminalResult key={skill.id}>-rwxr-xr-x {skill.user} {skill.date} <strong>"{skill.title}"</strong></TerminalResult>
             ))}
             <TerminalCommandPrefix>
@@ -227,10 +278,10 @@ export default function Home() {
                   título de <strong>Tecnólogo</strong>. Segue ao lado as instituições de ensino em que estudei.
                 </EducationLabelAlt>
                 <EducationTimeline>
-                  { data.site.siteMetadata.education.map(education =>  (
+                  { graduations.nodes.map(education =>  (
                       <EducationItem key={education.id}>
                         <EducationImgWrapper>
-                          <EducationImage src={education.imgUrl}></EducationImage>
+                          <Img fluid={education.imgUrl.fluid}></Img>
                         </EducationImgWrapper>
                         <EducationInfo>
                           <EducationDate>{ education.date }</EducationDate>
@@ -261,14 +312,16 @@ export default function Home() {
               links ao certificado de conclusão.
             </CertificateDescription>
             <CertificateInnerContainer>
-              { data.site.siteMetadata.certificates.map(cert => (
+              { certificates.nodes.map(cert => (
                 <CertificateItem
                   href={cert.certUrl ? cert.certUrl : null}
                   target="_blank"
                   key={cert.id}
                 >
                   <CertificateHeader>
-                    <CertificateImg src={cert.imgUrl} alt="Certificate Image" />
+                    <CertificateImg>
+                      <Img fluid={cert.imgUrl.fluid}></Img>
+                    </CertificateImg>
                     <CertificateLink>
                       <CertificateName>{cert.title}</CertificateName>
                       <CertificatePlace>{cert.platform}</CertificatePlace>
@@ -289,4 +342,6 @@ export default function Home() {
       </CertificateSection>
     </HomeWrapper>
   );
-}
+};
+
+export default Home;

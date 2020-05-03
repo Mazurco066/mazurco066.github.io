@@ -347,11 +347,6 @@ export const CarrerImgWrapper = styled.div`
   flex-grow: 1;
 `;
 
-export const CarrerImage = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
 export const CarrerInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -552,11 +547,6 @@ export const EducationImgWrapper = styled.div`
   flex-grow: 1;
 `;
 
-export const EducationImage = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
 export const EducationInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -708,7 +698,7 @@ export const CertificateLink = styled.a`
   align-items: flex-start;
 `;
 
-export const CertificateImg = styled.img`
+export const CertificateImg = styled.div`
   width: 4rem;
   height: 4rem;
   margin-right: 0.5rem;

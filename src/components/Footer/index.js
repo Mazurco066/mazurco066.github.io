@@ -73,7 +73,7 @@ export default function Footer() {
             <FooterNavigationLink onClick={() => scrollTo('#skill')}>Habilidades</FooterNavigationLink>
             <FooterNavigationLink onClick={() => scrollTo('#education')}>Educação</FooterNavigationLink>
             <FooterNavigationLink onClick={() => scrollTo('#certificate')}>Certificados</FooterNavigationLink>
-            <FooterNavigationLink href="https://mazurco066.github.io/myblog/#/" target="_blank">Blog</FooterNavigationLink>
+            <FooterNavigationLink href="https://mazblog.netlify.app/" target="_blank">Blog</FooterNavigationLink>
           </FooterNavigation>
         </FooterContent>
       </Container>

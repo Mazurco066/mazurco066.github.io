@@ -1,7 +1,7 @@
 {
   "name": "mazurco-landing-page",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "My awesome landing page",
   "version": "1.0.0",
   "author": "Gabriel Mazurco <mazurco066@gmail.com>",
   "dependencies": {

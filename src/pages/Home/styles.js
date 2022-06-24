@@ -733,3 +733,163 @@ export const CertificateDate = styled.p`
   color: #ababab;
   font-weight: 300;
 `;
+
+// Projects section
+export const ProjectsSection = styled.div`
+  position: relative;
+  background-color: ${props => props.theme.background};
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+
+  background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+
+
+`;
+
+export const ProjectsTitle = styled.h1`
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2.75rem;
+  text-transform: uppercase;
+  color: ${props => props.theme.secondary};
+  width: 100%;
+  border-bottom: 2px solid ${props => props.theme.secondary};
+  @media (max-width:576px) { font-size: 2rem; }
+`;
+
+export const ProjectsDescription = styled.p`
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
+  color: ${props => props.theme.background};
+`;
+
+export const ProjectsInnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+  @media (min-width: 560px) and (max-width: 991px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  @media (max-width: 559px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const ProjectItem = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: ${props => props.theme.primary};
+  border-radius: 0.5rem;
+  width: 32%;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  cursor: default;
+  transition: all 0.3s ease;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: ${props => props.theme.secondaryLight};
+  }
+  @media (min-width:769px) and (max-width:992px) {
+    width: 46%;
+    &:nth-child(3n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+  @media (min-width:577px) and (max-width:768px) {
+    width: 46%;
+    &:nth-child(3n) {
+      margin-right: 1rem;
+    }
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+  @media (max-width:576px) {
+    width: 100%;
+    margin-right: 0!important;
+  }
+`;
+
+export const ProjectLogo = styled.div`
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  width: 100%;
+`
+
+export const ProjectImg = styled.div`
+  width: 8rem;
+  height: 8rem;
+  margin-right: 0.5rem;
+`;
+
+export const ProjectTitle = styled.h4`
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #212121;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+`
+
+export const ProjectDescription = styled.p`
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: #212121;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+`
+
+export const ProjectLink = styled.a`
+  background-color: ${props => props.theme.secondary};
+  padding: 1rem 0.5rem;
+  border-radius: 8px;
+  width: 100%;
+  color: ${props => props.theme.background};
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+`

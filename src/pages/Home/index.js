@@ -12,6 +12,7 @@ import linkedin from '../../images/linkedin.svg';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import {
+  // Avatar section
   AvatarSection,
   AvatarContainer,
   AvatarDisplay,
@@ -21,6 +22,7 @@ import {
   AvatarName,
   AvatarRole,
   AvatarSocialMedia,
+  // Carrer section
   CarrerBadge,
   CarrerBadgeContainer,
   CarrerContainer,
@@ -35,6 +37,7 @@ import {
   CarrerSection,
   CarrerTimeline,
   CarrerTitle,
+  // Education
   EducationCompany,
   EducationDate,
   EducationImgWrapper,
@@ -47,6 +50,8 @@ import {
   EducationTimeline,
   EducationTitle,
   EducationContainer,
+  EducationSection,
+  // Certificates section
   CertificateDescription,
   CertificateInnerContainer,
   CertificateSection,
@@ -64,13 +69,25 @@ import {
   CertificateImg,
   Container,
   CubeEffect,
-  EducationSection,
   HomeWrapper,
+  // Project section
+  ProjectDescription,
+  ProjectLink,
+  ProjectLogo,
+  ProjectImg,
+  ProjectItem,
+  ProjectTitle,
+  ProjectsDescription,
+  ProjectsInnerContainer,
+  ProjectsSection,
+  ProjectsTitle,
+  // Skills section
   SkillSection,
   SkillTitle,
   SkillVersion,
   SocialMediaButton,
   SocialMediaIcon,
+  // Terminal section
   TerminalCommand,
   TerminalCommandPrefix,
   TerminalCursor,
@@ -134,6 +151,26 @@ const query = graphql`
         id
       }
     }
+    projects: allContentfulProjects {
+      nodes {
+        id
+        title
+        url
+        description {
+          description
+        }
+        thumbnail {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+        images {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
     contact: site {
       info: siteMetadata {
         facebookUrl
@@ -145,8 +182,11 @@ const query = graphql`
 `;
 
 const Home = () => {
+  // Retrieve static data
   const data = useStaticQuery(query);
-  const { carrers, certificates, graduations, skills, contact } = data;
+  const { carrers, certificates, graduations, projects, skills, contact } = data;
+
+  // JSX
   return (
     <HomeWrapper>
       <SEO title="Home" />
@@ -340,6 +380,38 @@ const Home = () => {
           </Container>
         </Zoom>  
       </CertificateSection>
+      {/* Projects section */}
+      <ProjectsSection id="projects">
+        <Zoom>
+          <Container>
+            <ProjectsTitle>Projetos</ProjectsTitle>
+            <ProjectsDescription>
+              Segue abaixo uma lista de projetos independentes que desenvolvi. Esses projetos foram criados com o intuito de 
+              possuir qualidade e utilidade para um nicho especifico.
+            </ProjectsDescription>
+            <ProjectsInnerContainer>
+              { projects.nodes.map(project => (
+                <ProjectItem key={project.id}>
+                  <ProjectLogo>
+                    <ProjectImg>
+                      <Img fluid={project.thumbnail.fluid}></Img>
+                    </ProjectImg>
+                  </ProjectLogo>
+                  <ProjectTitle>
+                    { project.title }
+                  </ProjectTitle>
+                  <ProjectDescription>
+                    { project.description.description }
+                  </ProjectDescription>
+                  <ProjectLink href={project.url} target="_blank" rel="noopener">
+                    Acessar
+                  </ProjectLink>
+                </ProjectItem>
+              ))}
+            </ProjectsInnerContainer>
+          </Container>
+        </Zoom>
+      </ProjectsSection>
     </HomeWrapper>
   );
 };

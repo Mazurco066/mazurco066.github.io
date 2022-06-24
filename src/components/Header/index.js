@@ -56,6 +56,9 @@ function Header({ siteTitle }) {
             <HeaderLink
               onClick={() => scrollTo('#certificate')}
             >Certificados</HeaderLink>
+            <HeaderLink
+              onClick={() => scrollTo('#projects')}
+            >Projetos</HeaderLink>
           </HeaderNavigation>
           <DrawerButton onClick={() => setDrawerOpenState(!isDrawerOpened)}>
             <DrawerButtonIcon
@@ -81,6 +84,7 @@ function Header({ siteTitle }) {
           <DrawerItem onClick={() => navigateAndScrollTo('#skill')}>Habilidades</DrawerItem>
           <DrawerItem onClick={() => navigateAndScrollTo('#education')}>Graduação</DrawerItem>
           <DrawerItem onClick={() => navigateAndScrollTo('#certificate')}>Certificados</DrawerItem>
+          <DrawerItem onClick={() => navigateAndScrollTo('#projects')}>Projetos</DrawerItem>
         </DrawerItemsContainer>
       </Drawer>
     </CustomHeader>

@@ -1,15 +1,15 @@
 // Dependencies
-import React from "react"
-import PropTypes from "prop-types"
-import Zoom from "react-reveal/Zoom"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import Zoom from 'react-reveal/Zoom'
+import { useStaticQuery, graphql } from 'gatsby'
 
 // Global Styles
 import GlobalStyles from '../../styles/global'
 
 // Layout components
-import Footer from "../Footer"
-import Header from "../Header"
+import Footer from '../Footer'
+import Header from '../Header'
 
 const Layout = ({ children }) => {
   // GraphQL Queries

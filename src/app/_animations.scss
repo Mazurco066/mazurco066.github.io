@@ -1,0 +1,41 @@
+// Rotation animation
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+// Scroll driven animations
+/* @keyframes fade-in-on-enter--fade-out-on-exit {
+  entry from 0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  entry to 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  exit 0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  exit 100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+} */

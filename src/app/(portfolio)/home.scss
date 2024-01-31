@@ -1,0 +1,78 @@
+@import "../colors";
+
+.avatar-frame {
+  position: absolute;
+  height: 315px;
+  width: 315px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50%;
+  top: -7.5px;
+  left: -7.5px;
+  border-color: $color-secondary transparent $color-secondary transparent;
+  animation: rotation 8s infinite linear;
+  -webkit-animation: rotation 8s infinite linear;
+}
+
+.hero-button {
+  background-color: $color-secondary;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $color-secondary-darker;
+    cursor: pointer;
+  }
+}
+
+#carrer-section {
+  background-image: url("/images/clouds.png"), url("/images/buildings.png");
+  background-position: center top, center bottom;
+  background-repeat: repeat-x;
+  padding: 40px 0 80px 0;
+}
+
+#skill-section {
+  background-color: #000000;
+  font-family: monospace;
+  padding: 24px 0;
+
+  .smaller {
+    font-size: 0.6rem;
+  }
+
+  .terminal-cursor {
+    border-right: 4px solid orange;
+    margin-left: 0.5rem;
+    animation: blink .75s step-end infinite;
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+  }
+}
+
+#education-section {
+  background-image: url("/images/confetti.png"), url("/images/graduates.png");
+  background-position: center top, center bottom;
+  background-repeat: repeat-x;
+  padding: 40px 0 80px 0;
+}
+
+#certificate-section {
+  background-color: $color-primary;
+  padding: 40px 0;
+
+  .item {
+    background-color: $color-background;
+  }
+}
+
+#project-section {
+  background-image: url("/images/clouds.png"), url("/images/buildings.png");
+  background-position: center top, center bottom;
+  background-repeat: repeat-x;
+  padding: 40px 0;
+}

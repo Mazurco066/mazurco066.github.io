@@ -1,0 +1,30 @@
+// Colors setup
+$color-background: #f5f5f5;
+$color-primary: #7CC576;
+$color-primary-darker: #7ce176;
+$color-secondary: #73363D;
+$color-secondary-lighter: #AB6668;
+$color-secondary-darker: #5d2b30;
+
+// Color classes
+.color-primary {
+  color: $color-primary;
+  border-color: $color-primary;
+}
+
+.color-secondary {
+  color: $color-secondary;
+  border-color: $color-secondary;
+}
+
+.bg-primary {
+  background-color: $color-primary;
+}
+
+.bg-secondary {
+  background-color: $color-secondary;
+}
+
+.bg-secondary-darker {
+  background-color: $color-secondary-darker;
+}

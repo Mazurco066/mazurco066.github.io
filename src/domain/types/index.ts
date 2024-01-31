@@ -1,0 +1,5 @@
+export * from './certificate'
+export * from './carrer'
+export * from './education'
+export * from './project'
+export * from './skill'
